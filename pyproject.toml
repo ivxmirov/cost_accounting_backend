@@ -9,7 +9,8 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "fastapi (>=0.135.1,<0.136.0)",
-    "uvicorn (>=0.42.0,<0.43.0)"
+    "uvicorn (>=0.42.0,<0.43.0)",
+    "sqlalchemy (>=2.0.48,<3.0.0)"
 ]
 
 [tool.poetry]
@@ -39,7 +40,9 @@ confidence = [
 ]
 
 disable = [
+  "C0103",  # invalid-name
   "C0114",  # missing-module-docstring
   "C0115",  # missing-class-docstring
   "C0116",  # missing-function-docstring
+  "R0903",  # too-few-public-methods
 ]
