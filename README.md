@@ -28,8 +28,12 @@ cost_accounting
 ├─ main.py
 ├─ poetry.lock
 ├─ pyproject.toml
+├─ README.md
 ├─ test-reports
 └─ tests
+   ├─ conftest.py
+   ├─ test_api
+   │  └─ test_operations.py
    └─ __init__.py
 
 ```

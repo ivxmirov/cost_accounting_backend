@@ -10,7 +10,8 @@ requires-python = ">=3.12"
 dependencies = [
     "fastapi (>=0.135.1,<0.136.0)",
     "uvicorn (>=0.42.0,<0.43.0)",
-    "sqlalchemy (>=2.0.48,<3.0.0)"
+    "sqlalchemy (>=2.0.48,<3.0.0)",
+    "httpx (>=0.28.1,<0.29.0)"
 ]
 
 [tool.poetry]
@@ -45,4 +46,20 @@ disable = [
   "C0115",  # missing-class-docstring
   "C0116",  # missing-function-docstring
   "R0903",  # too-few-public-methods
+  "import-error",
+  "no-name-in-module",
+  "wrong-import-order",
+]
+
+[tool.pylint.master]
+# Указываем, что тесты - это нормально
+ignore-patterns = []
+extension-pkg-allow-list = ["pytest", "sqlalchemy"]
+
+[tool.pylint."tests"]
+# Специальные правила для тестов
+disable = [
+    "redefined-outer-name",  # для pytest фикстур
+    "missing-function-docstring",
+    "protected-access",
 ]
