@@ -12,6 +12,7 @@ cost_accounting
 │  │  └─ __init__.py
 │  ├─ database.py
 │  ├─ dependency.py
+│  ├─ enum.py
 │  ├─ models.py
 │  ├─ repository
 │  │  ├─ users.py

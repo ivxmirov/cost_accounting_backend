@@ -2,6 +2,7 @@ from decimal import Decimal
 
 from sqlalchemy.orm import Session
 
+from app.enum import CurrencyEnum
 from app.models import User, Wallet
 
 
@@ -53,9 +54,15 @@ def get_all_wallets(db: Session, user_id: int) -> list[Wallet]:
 
 
 def create_wallet(
-    db: Session, user_id: int, wallet_name: str, initial_balance: Decimal
+    db: Session,
+    user_id: int,
+    wallet_name: str,
+    initial_balance: Decimal,
+    currency: CurrencyEnum,
 ) -> Wallet:
-    wallet = Wallet(name=wallet_name, balance=initial_balance, user_id=user_id)
+    wallet = Wallet(
+        name=wallet_name, balance=initial_balance, user_id=user_id, currency=currency
+    )
     db.add(wallet)
     db.flush()
     return wallet
