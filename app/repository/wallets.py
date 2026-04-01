@@ -6,15 +6,6 @@ from app.enum import CurrencyEnum
 from app.models import User, Wallet
 
 
-def is_wallet_exist(db: Session, user_id: int, wallet_name: str) -> bool:
-    return (
-        db.query(Wallet)
-        .filter(Wallet.name == wallet_name, Wallet.user_id == user_id)
-        .first()
-        is not None
-    )
-
-
 def add_income(
     db: Session, user_id: int, wallet_name: str, amount: Decimal
 ) -> Wallet | None:
@@ -27,16 +18,6 @@ def add_income(
     return wallet
 
 
-def get_wallet_balance_by_name(
-    db: Session, user_id: int, wallet_name: str
-) -> Wallet | None:
-    return (
-        db.query(Wallet)
-        .filter(Wallet.name == wallet_name, Wallet.user_id == user_id)
-        .first()
-    )
-
-
 def add_expense(
     db: Session, user_id: int, wallet_name: str, amount: Decimal
 ) -> Wallet | None:
@@ -47,6 +28,33 @@ def add_expense(
     )
     wallet.balance -= amount  # type: ignore
     return wallet
+
+
+def is_wallet_exist(db: Session, user_id: int, wallet_name: str) -> bool:
+    return (
+        db.query(Wallet)
+        .filter(Wallet.name == wallet_name, Wallet.user_id == user_id)
+        .first()
+        is not None
+    )
+
+
+def get_wallet_balance_by_name(
+    db: Session, user_id: int, wallet_name: str
+) -> Wallet | None:
+    return (
+        db.query(Wallet)
+        .filter(Wallet.name == wallet_name, Wallet.user_id == user_id)
+        .first()
+    )
+
+
+def get_wallet_by_id(db: Session, user_id: int, wallet_id: int) -> Wallet | None:
+    return (
+        db.query(Wallet)
+        .filter(Wallet.id == wallet_id, Wallet.user_id == user_id)
+        .scalar()
+    )
 
 
 def get_all_wallets(db: Session, user_id: int) -> list[Wallet]:

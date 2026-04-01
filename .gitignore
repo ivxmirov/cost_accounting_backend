@@ -7,6 +7,9 @@ __pycache__/
 # C extensions
 *.so
 
+# Databases
+*.db
+
 # Distribution / packaging
 .Python
 build/
@@ -58,9 +61,6 @@ tests/test-reports/junit.xml
 test-reports/junit.xml
 test-reports/mypy-junit.xml
 tests/test-reports/junit.xml
-test.db
-test_*.db
-*_test.db
 
 # Translations
 *.mo
