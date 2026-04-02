@@ -15,17 +15,18 @@ cost_accounting
 │  ├─ enum.py
 │  ├─ models.py
 │  ├─ repository
+│  │  ├─ operations.py
 │  │  ├─ users.py
 │  │  ├─ wallets.py
 │  │  └─ __init__.py
 │  ├─ schemas.py
 │  ├─ service
+│  │  ├─ exchange_service.py
 │  │  ├─ operations.py
 │  │  ├─ users.py
 │  │  ├─ wallets.py
 │  │  └─ __init__.py
 │  └─ __init__.py
-├─ finance.db
 ├─ main.py
 ├─ poetry.lock
 ├─ pyproject.toml
