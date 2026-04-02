@@ -3,7 +3,7 @@ from decimal import Decimal
 from sqlalchemy.orm import Session
 
 from app.enum import CurrencyEnum
-from app.models import User, Wallet
+from app.models import Wallet
 
 
 def add_income(
@@ -58,7 +58,7 @@ def get_wallet_by_id(db: Session, user_id: int, wallet_id: int) -> Wallet | None
 
 
 def get_all_wallets(db: Session, user_id: int) -> list[Wallet]:
-    return db.query(Wallet).filter(User.id == user_id).all()
+    return db.query(Wallet).filter(Wallet.user_id == user_id).all()
 
 
 def create_wallet(

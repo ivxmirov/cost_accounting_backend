@@ -98,3 +98,7 @@ class WalletResponse(BaseModel):
     name: str
     balance: Decimal
     currency: CurrencyEnum
+
+
+class TotalBalance(BaseModel):
+    total_balance: Decimal
